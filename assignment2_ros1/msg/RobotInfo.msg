@@ -1,4 +1,4 @@
 float32 x
 float32 y
-float32 vel_x
-float32 vel_z
+float32 velX
+float32 velZ
