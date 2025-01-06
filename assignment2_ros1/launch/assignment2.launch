@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- Launch node inside assignment2_2024 -->
+    <include file="$(find assignment_2_2024)/launch/assignment1.launch" />
+
+    <!-- Launch node inside assignment2_ros1 -->
+    <node pkg="assignment2_ros1" type="actionClientNode.py" name="actionClientNode" output="screen"/>
+    <node pkg="assignment2_ros1" type="serviceNode.py" name="serviceNode" output="screen"/>
+</launch>
