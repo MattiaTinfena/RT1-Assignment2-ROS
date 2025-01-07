@@ -37,6 +37,7 @@ def userInteraction(client):
             client.cancel_goal()
         else:
             rospy.loginfo("The goal has already been achieved.")
+        return "deleted"
 
     elif command.lower() == "f":
         rospy.loginfo("Requesting feedback...")
@@ -89,12 +90,13 @@ if __name__ == '__main__':
         rate = rospy.Rate(10)
 
         while not rospy.is_shutdown():
+            rate.sleep()
             # Request target coordinates from the user
-            xTarget = getCoordinate("Enter X coordinate for the goal: ")
+            xTarget = getCoordinate("Enter X coordinate for the goal (enter 'e' to exit): ")
             if xTarget == "exit":
                 break
 
-            yTarget = getCoordinate("Enter Y coordinate for the goal: ")
+            yTarget = getCoordinate("Enter Y coordinate for the goal (enter 'e' to exit): ")
             if yTarget == "exit":
                 break
 
@@ -105,9 +107,9 @@ if __name__ == '__main__':
 
             while actionClient.get_state() not in [actionlib.GoalStatus.SUCCEEDED, actionlib.GoalStatus.ABORTED, actionlib.GoalStatus.PREEMPTED]:
                 result = userInteraction(actionClient)
-                if result == "exit":
-                    break
                 rate.sleep()
+                if result == "exit" or result == "deleted":
+                    break
 
             if result == "exit":
                 break
