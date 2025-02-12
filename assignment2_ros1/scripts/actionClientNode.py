@@ -6,10 +6,15 @@ import actionlib.msg
 import sys
 from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import Odometry
-from assignment_2_2024.msg import PlanningAction, PlanningGoal
+from assignment_2_2024.msg import PlanningAction, PlanningGoal, PlanningFeedback
 from assignment2_ros1.msg import RobotInfo
+from sensor_msgs.msg import LaserScan
+from std_msgs.msg import Bool
+from example_interfaces.srv import Empty, Float64
 
-# Global variable to store the latest feedback
+last_target_x = None
+last_target_y = None
+
 feedbackData = None
 
 def feedbackHandler(feedback):
@@ -17,15 +22,63 @@ def feedbackHandler(feedback):
     global feedbackData
     feedbackData = feedback
 
+def feedbackSubscriberCallback(feedbackMsg):
+    """Callback function for the feedback subscriber."""
+    if feedbackMsg.stat == "Target reached!":  
+        rospy.loginfo("reached")
+
+def clbk_laser(msg):
+    regions_ = {
+        'right':  min(msg.ranges[0:143] or [10]),  
+        'fright': min(msg.ranges[144:287] or [10]),
+        'front':  min(msg.ranges[288:431] or [10]),
+        'fleft':  min(msg.ranges[432:575] or [10]),
+        'left':   min(msg.ranges[576:719] or [10]),
+    }
+
+    min_distance = min(regions_['right'], regions_['fright'], regions_['front'], regions_['fleft'], regions_['left'])
+
+    warning_msg = Bool()
+    warning_msg.data = min_distance < 1.0  
+    warning_pub.publish(warning_msg)
+
+    rospy.loginfo("Warning: Closest obstacle at %.2f meters", min_distance)
+
+
+def calculate_distance(x1, y1, x2, y2):
+    """Calculates the Euclidean distance between two points."""
+    return ((x2 - x1)**2 + (y2 - y1)**2)**0.5
+
+def handle_get_distance(req):
+    """Service handler to calculate distance from the last target."""
+    if last_target_x is None or last_target_y is None:
+        rospy.loginfo("No target has been set yet.")
+        return Float64(data=0.0) 
+
+    current_position = rospy.wait_for_message('/odom', Odometry) 
+    current_x = current_position.pose.pose.position.x
+    current_y = current_position.pose.pose.position.y
+
+    distance = calculate_distance(current_x, current_y, last_target_x, last_target_y)
+    rospy.loginfo("Distance to last target: %.2f meters", distance)
+
+    return Float64(data=distance)
+
 def sendGoal(client, xTarget, yTarget):
     """Sends a goal to the action server."""
+    global last_target_x, last_target_y
     goal = PlanningGoal()
     goal.target_pose = PoseStamped()
     goal.target_pose.pose.position.x = xTarget
     goal.target_pose.pose.position.y = yTarget
 
+
+    last_target_x = xTarget
+    last_target_y = yTarget
+
     client.send_goal(goal, feedback_cb=feedbackHandler)
     rospy.loginfo("Goal has been sent to the action server.")
+
 
 def userInteraction(client):
     """Handles user inputs for goal management."""
@@ -87,7 +140,15 @@ if __name__ == '__main__':
         statusPublisher = rospy.Publisher("/robot_status", RobotInfo, queue_size=10)
         rospy.Subscriber("/odom", Odometry, publishStatus)
 
+        rospy.Subscriber("/reaching_goal/feedback", assignment_2_2024.msg.PlanningFeedback, feedbackSubscriberCallback)
+
+        rospy.Subscriber("/scan", LaserScan, clbk_laser)
+
+        warning_pub = rospy.Publisher('/warning', Bool, queue_size=10)
+
         rate = rospy.Rate(10)
+
+        rospy.Service('get_distance_to_target', Empty, handle_get_distance)
 
         while not rospy.is_shutdown():
             rate.sleep()
