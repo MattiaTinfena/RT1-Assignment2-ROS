@@ -4,6 +4,8 @@
 
 This project includes two main ROS nodes to manage a mobile robot's goal control and provide a service that returns the last set goal coordinates. The system allows the user to send a goal to the robot, monitor its status, and dynamically manage goal execution.
 
+For additional documentation: https://mattiatinfena.github.io/RT1-Assignment2-ROS/
+
 ### Main Features:
 1. **Action Client Node**:  
    - Allows the user to set target coordinates and send them to an action server.  
