@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>assignment2_ros1 documentation &mdash; assignment2_ros1 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            assignment2_ros1
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">assignment2_ros1 documentation</a><ul>
+<li><a class="reference internal" href="#indices">Indices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.actionClientNode">Action client node</a><ul>
+<li><a class="reference internal" href="#scripts.actionClientNode.feedbackHandler"><code class="docutils literal notranslate"><span class="pre">feedbackHandler()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.actionClientNode.getCoordinate"><code class="docutils literal notranslate"><span class="pre">getCoordinate()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.actionClientNode.publishStatus"><code class="docutils literal notranslate"><span class="pre">publishStatus()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.actionClientNode.sendGoal"><code class="docutils literal notranslate"><span class="pre">sendGoal()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.actionClientNode.userInteraction"><code class="docutils literal notranslate"><span class="pre">userInteraction()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.serviceNode">Service node</a><ul>
+<li><a class="reference internal" href="#scripts.serviceNode.handleTargetRequest"><code class="docutils literal notranslate"><span class="pre">handleTargetRequest()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">assignment2_ros1</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">assignment2_ros1 documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="assignment2-ros1-documentation">
+<h1>assignment2_ros1 documentation<a class="headerlink" href="#assignment2-ros1-documentation" title="Link to this heading"></a></h1>
+<p>This is the software documentation for the assignment2_ros1 package.</p>
+<div class="toctree-wrapper compound">
+</div>
+<section id="indices">
+<h2>Indices<a class="headerlink" href="#indices" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="module-scripts.actionClientNode">
+<span id="action-client-node"></span><h1>Action client node<a class="headerlink" href="#module-scripts.actionClientNode" title="Link to this heading"></a></h1>
+<p id="module-actionClientNode"><em>Module author: Tinfena Mattia - <a class="reference external" href="mailto:s7852527&#37;&#52;&#48;studenti&#46;unige&#46;it">s7852527<span>&#64;</span>studenti<span>&#46;</span>unige<span>&#46;</span>it</a></em></p>
+<p>This is the action client node written in Python for the assignment 2 of the research track course.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.actionClientNode.feedbackHandler">
+<span class="sig-prename descclassname"><span class="pre">scripts.actionClientNode.</span></span><span class="sig-name descname"><span class="pre">feedbackHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/actionClientNode.html#feedbackHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.actionClientNode.feedbackHandler" title="Link to this definition"></a></dt>
+<dd><p>Callback to handle feedback from the action server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>feedback</strong> (<em>PlanningFeedback</em>) – The feedback message received from the action server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.actionClientNode.getCoordinate">
+<span class="sig-prename descclassname"><span class="pre">scripts.actionClientNode.</span></span><span class="sig-name descname"><span class="pre">getCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/actionClientNode.html#getCoordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.actionClientNode.getCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Prompts the user to input a valid coordinate.</p>
+<p>This function continually asks for user input until a valid number is entered.
+It will also exit the program if the user enters ‘e’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prompt</strong> (<em>str</em>) – The prompt message to display to the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The valid coordinate input by the user or “exit” if the user chooses to exit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.actionClientNode.publishStatus">
+<span class="sig-prename descclassname"><span class="pre">scripts.actionClientNode.</span></span><span class="sig-name descname"><span class="pre">publishStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">odomMsg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/actionClientNode.html#publishStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.actionClientNode.publishStatus" title="Link to this definition"></a></dt>
+<dd><p>Publishes the robot’s current position and velocity.</p>
+<p>This function receives an Odometry message, extracts the robot’s position and velocity,
+and publishes it to the ‘/robot_status’ topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>odomMsg</strong> (<em>Odometry</em>) – The Odometry message containing the robot’s position and velocity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.actionClientNode.sendGoal">
+<span class="sig-prename descclassname"><span class="pre">scripts.actionClientNode.</span></span><span class="sig-name descname"><span class="pre">sendGoal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xTarget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yTarget</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/actionClientNode.html#sendGoal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.actionClientNode.sendGoal" title="Link to this definition"></a></dt>
+<dd><p>Sends a goal to the action server.</p>
+<p>This function sends the target coordinates to the action server and initiates
+goal tracking. It also sets up the feedback callback function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> (<em>actionlib.SimpleActionClient</em>) – The action client instance that communicates with the action server.</p></li>
+<li><p><strong>xTarget</strong> (<em>float</em>) – The X coordinate of the target goal.</p></li>
+<li><p><strong>yTarget</strong> (<em>float</em>) – The Y coordinate of the target goal.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.actionClientNode.userInteraction">
+<span class="sig-prename descclassname"><span class="pre">scripts.actionClientNode.</span></span><span class="sig-name descname"><span class="pre">userInteraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/actionClientNode.html#userInteraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.actionClientNode.userInteraction" title="Link to this definition"></a></dt>
+<dd><p>Handles user inputs for goal management.</p>
+<p>This function provides a simple interface for the user to interact with the
+action client. The user can cancel goals, request feedback, or exit the program.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>client</strong> (<em>actionlib.SimpleActionClient</em>) – The action client instance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string indicating the action taken, or “exit” to stop the program.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-scripts.serviceNode">
+<span id="service-node"></span><h1>Service node<a class="headerlink" href="#module-scripts.serviceNode" title="Link to this heading"></a></h1>
+<p id="module-ServiceNode"><em>Module author: Tinfena Mattia - <a class="reference external" href="mailto:s7852527&#37;&#52;&#48;studenti&#46;unige&#46;it">s7852527<span>&#64;</span>studenti<span>&#46;</span>unige<span>&#46;</span>it</a></em></p>
+<p>This is the service node written in Python for the assignment 2 of the research track course.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.serviceNode.handleTargetRequest">
+<span class="sig-prename descclassname"><span class="pre">scripts.serviceNode.</span></span><span class="sig-name descname"><span class="pre">handleTargetRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/serviceNode.html#handleTargetRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.serviceNode.handleTargetRequest" title="Link to this definition"></a></dt>
+<dd><p>Callback function for the service that handles requests for the last target coordinates.</p>
+<p>This function retrieves the target coordinates from the ROS parameter server and
+returns them as a response to the service request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>lastTargetRequest</em>) – The service request. It is not used in this case, but is required by the service signature.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The last target coordinates (X and Y).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lastTargetResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tinfena Mattia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

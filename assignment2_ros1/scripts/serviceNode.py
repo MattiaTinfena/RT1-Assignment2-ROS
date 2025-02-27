@@ -1,11 +1,31 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: ServiceNode
+   :platform: Unix
+   :synopsis: This module contains the code for the ROS1 package of the assignment 2.
+
+.. moduleauthor:: Tinfena Mattia - s7852527@studenti.unige.it
+
+This is the service node written in Python for the assignment 2 of the research track course.
+"""
+
 import rospy
 import sys
 from assignment2_ros1.srv import lastTarget, lastTargetResponse  # Import custom service message
 
-# Callback function for the service
 def handleTargetRequest(request):
+    """
+    Callback function for the service that handles requests for the last target coordinates.
+
+    This function retrieves the target coordinates from the ROS parameter server and 
+    returns them as a response to the service request.
+
+    :param request: The service request. It is not used in this case, but is required by the service signature.
+    :type request: lastTargetRequest
+    :returns: The last target coordinates (X and Y).
+    :rtype: lastTargetResponse
+    """
     posX = float(rospy.get_param("/des_pos_x"))
     posY = float(rospy.get_param("/des_pos_y"))
     return lastTargetResponse(posX, posY)
